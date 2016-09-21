@@ -35,3 +35,16 @@ thinking of what word tense to use.
 
  5. Finding the writing of ArgumentError's harder than anticipated.
  + Found this article helpful in breaking down how ArgumentError's might look in the wild. Though, the ones I'm writing don't seem to work as I predicted. http://phrogz.net/programmingruby/tut_exceptions.html
+
+6. pseudo code for writing inscription method:
+def write_inscription(description)
+  if @inscprion.empty?
+    @inscription << description
+    return @inscription
+  elsif
+    puts "Raise ArgumentError: you cannot add more words to a door that already has a description written for it. "
+  else
+    puts "this may never be thrown. "
+  end
+
+end

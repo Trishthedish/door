@@ -5,7 +5,7 @@ require_relative '../lib/door'
 class Door
   attr_accessor :inscription
 
-  def initialize(inscription,is_door_open, is_door_locked)
+  def initialize(is_door_open, is_door_locked)
     # I'm not sure I should initialize an empty string, empty array, or other.
     # # either way I suppose I need an empty vessel to hold the string inscription.
     @inscription = []
@@ -15,23 +15,19 @@ class Door
 
 # the methods are the verbs for the doors different states.
   def write_inscription(description)
-    if @inscprion.empty?
+    # if @inscprion.empty? == true
+    attempts = 0
+    while attempts <= 1|
       @inscription << description
       return @inscription
-    elsif
-      puts "Raise ArgumentError: you cannot add more words to a door that already has a description written for it. "
     else
-      puts "this may never be thrown. "
+      puts "Raise ArgumentError: you cannot add more words to a door that already has a description written for it. "
     end
-
   end
 
   # def display_inscription
   #
   # end
-
-
-
 
   def open()
     # so if the door is closed , door is unlocked
@@ -91,6 +87,12 @@ class Door
   end
 
 end
+
+
+# creating a test to see if my writing method will work.
+# so door is open and unlocked.
+test4 = Door.new(true, false)
+puts test4.write_inscription("here is a nother string.")
 
 
 

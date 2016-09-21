@@ -14,7 +14,7 @@ describe Door do
   it "Test to see if open door, cannot be opened (params: true, false)" do
     # as in, is_door_open = true, is_door_locked = false
     # door is open, its not locked.
-    door = Door.new(true, false, nil)
+    door = Door.new(true, false)
     expect(door.open).must_equal("ArgumentError: The door is already opened, you can't open it!")
   end
 
