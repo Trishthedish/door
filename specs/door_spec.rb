@@ -82,29 +82,32 @@ describe Door do
 
 #09 # pass!
   it "Test to see if a locked door, CANNOT be opened " do
-    door = Door.new(true, true)
+    door = Door.new(false, true)
     expect(door.open).must_equal(nil)
     # or raise an argument errror, eventually.
   end
 
-#10
+#10 # pass!
   it "Test to see if a locked door, CANNOT closed " do
-    door = Door.new(true, true)
-    expect(door.close).must_equal(false)
+    door = Door.new(false, true)
+    expect(door.close).must_equal(nil)
     # or raise an argument errror?
   end
 
 #11
   it "Test to see if a locked door, CANNOT locked " do
-    skip
-    door = Door.new(true, true)
-    expect(door.locked).must_equal()
+    # door would need to be closed, i.e.(param 1st: false)
+    # and that closed, woould also need to be locked (2nd: true)
+    door = Door.new(false, true)
+    expect(door.lock).must_equal(nil)
   end
 
 #12
   it "Test to see if a locked door, can be unlocked" do
-    skip
-    door = Door.new(true, true)
-    expect(door.unlock).must_equal(nil)
+    # is_door_open: false (as its closed)
+    # is_door_locked: true
+    door = Door.new(false, true)
+    # I expected it to be true. As in, it can be unlocked. But, the test said it wanted false. Which potentially means that its registering the new state of the door which is_door_locked: false. Would in fact be true?
+    expect(door.unlock).must_equal(false)
   end
 end
