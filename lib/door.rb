@@ -92,7 +92,7 @@ end
 # puts test3.open
 # expect it would be false, or display a message that says,"you cannot open a locked door."
 
-# 
+#
 # test3 = Door.new(true, true)
 # puts test3.lock
 

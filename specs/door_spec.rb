@@ -4,14 +4,13 @@ require_relative '../lib/door'
 
 describe Door do
 
-    ################### OpenDoor tests ###################
+################### OpenDoor tests ###################
+## cannot be opened
+## can be closed
+## cannot be locked
+## cannot be unlocked
 
-    ## cannot be opened
-    ## can be closed
-    ## cannot be locked
-    ## cannot be unlocked
-
-  #01
+#01 # pass!
   it "Test to see if open door, cannot be opened (params: true, false)" do
     # as in, is_door_open = true, is_door_locked = false
     # door is open, its not locked.
@@ -19,8 +18,7 @@ describe Door do
     expect(door.open).must_equal(nil)
   end
 
-  #02
-  skip
+#02 # pass!
   it "test, to see that if the door is closed (as in not opened), and that its unlocked it can be opened." do
     # as in, is_door_open = false and is_door_locked = false
     # door is closed, and unlocked.
@@ -28,65 +26,61 @@ describe Door do
     expect(door.open).must_equal(true)
   end
 
-  #03
-  skip
+#03 # pass!
   #door cannot be locked.
-  it "Test to see if open door cannot be locked. Should return nil(?)"
+  it "Test to see if open door cannot be locked. Should return nil(?)" do
     door1 = Door.new(true, true)
     expect(door1.lock).must_equal(nil)
     # or argument error.
   end
 
-  #04
-  skip
+#04 # pass!
   #open door cannot be unlocked.
-  it "Test to see if an open door cannot be unlocked."
+  it "Test to see if an open door cannot be unlocked." do
     door = Door.new(true, true)
     expect(door.unlock).must_equal(nil)
     # or raise an argument error.
   end
-  # supposedly this is where my unexpected end of input is. 
+  # Thanks Susan & Chris! I was checking all of my it & end matched up. Failed to look at my do side.
 
-    ################### ClosedDoor tests ###################
-    ## can be opened
-    ## cannnot be closed
-    ## can be locked
-    ## cannot be unlocked
-#05
-  skip
+################### ClosedDoor tests ###################
+## can be opened
+## cannnot be closed
+## can be locked
+## cannot be unlocked
+
+#05 # pass!
   it "Test to see if a closed door, can be opened" do
     door = Door.new(false, true)
-    expect(door.open).must_equal(true)
+    expect(door.open).must_equal(nil)
   end
 
-#06
-  skip
+#06 # pass!
   it "Test to see if a closed door, CANNOT be closed." do
     door = Door.new(false, true)
     expect(door.close).must_equal(nil)
     # eventually, raise argument error?
   end
 
-#07
-  skip
+#07 # pass!
   it "Test to see if a closed door, can be locked " do
     door = Door.new(false, false)
-    expect(door.locked).must_equal(nil)
+    expect(door.lock).must_equal(true)
   end
 
-#08
-  skip
+#08 # pass!
   it "Test to see if a closed door, CANNOT be unlocked " do
     door = Door.new(false, false)
     expect(door.unlock).must_equal(nil)
   end
 
-    ################### LockedDoor Tests ###################
-    ## cannot be opened
-    ## cannot be closed
-    ## cannot be locked
-    ## can be unlocked
-    #09
+################### LockedDoor Tests ###################
+## cannot be opened
+## cannot be closed
+## cannot be locked
+## can be unlocked
+
+#09 # pass!
   it "Test to see if a locked door, CANNOT be opened " do
     door = Door.new(true, true)
     expect(door.open).must_equal(nil)
@@ -94,22 +88,22 @@ describe Door do
   end
 
 #10
-  skip
   it "Test to see if a locked door, CANNOT closed " do
     door = Door.new(true, true)
-    expect(door.close).must_equal()
+    expect(door.close).must_equal(false)
     # or raise an argument errror?
   end
 
 #11
-  skip
   it "Test to see if a locked door, CANNOT locked " do
+    skip
     door = Door.new(true, true)
     expect(door.locked).must_equal()
   end
+
 #12
-  skip
   it "Test to see if a locked door, can be unlocked" do
+    skip
     door = Door.new(true, true)
     expect(door.unlock).must_equal(nil)
   end
