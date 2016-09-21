@@ -1,20 +1,37 @@
 <!-- notes.md -->
-#
-
-thought I could build it similarly to the planet_hash.
-#   attr_accessor :name, :display, :
-#
-# # name, display, is_door_open , is_door_Locked
-#   def initialize(door_hash)
-#     @name = door_hash[:name]
-# # You may open a Door if and only if it is unlocked and closed
-#     @is_door_open = [:is_door_open false] && @is_door_locked = false
-#     @is_door_Locked =
-#   end
-#
-# end
 
 
+1.
+<!-- thought I could build it similarly to the planet_hash. -->
+
+  def initialize(door_hash)
+     @name = door_hash[:name]
+        #You may open a Door if and only if it is unlocked and closed
+     @is_door_open = [:is_door_open false] && @is_door_locked = false
+     @is_door_Locked =
+   end
+ end
+
+2.
 http://stackoverflow.com/questions/5448938/why-cant-a-variable-name-end-with-while-a-method-name-can
++ An interesting article about why I can't name my instance variables with question marks.
++ Found because I was planning out my Door class architecture that I was having a hard time
+thinking of what word tense to use.
 
-An interesting about why I can't name my instance variables with question marks. 
+3.
+> http://radar.oreilly.com/2014/05/why-ruby-blocks-exist-part-iii.html
++ This article goes over a creating a Fridge object with similiar behaviors to a door.
+
++ >> "Here we have a Ruby class representing a refrigerator. Prior to accessing a refrigerator object’s contents via its contents method, you have to call its open method to open the door. (Sensible enough.)"
+
++ >> "If we try and access the contents with the door closed, we’ll get a warning, and will have to open the door before trying again."
+
++ I'm inspired by the idea of storing fridge contents... which could work for an inscription??
+
+
+
+
+ 4. markdown reminder: https://en.support.wordpress.com/markdown-quick-reference/
+
+ 5. Finding the writing of ArgumentError's harder than anticipated.
+ + Found this article helpful in breaking down how ArgumentError's might look in the wild. Though, the ones I'm writing don't seem to work as I predicted. http://phrogz.net/programmingruby/tut_exceptions.html

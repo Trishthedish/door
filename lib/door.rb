@@ -3,17 +3,27 @@ require_relative '../lib/door'
 # require_relative 'Spec_helper'
 
 class Door
-
-# not sure how to deal with this yet: description
-
+  attr_accessor :inscription
+  #inscription
   def initialize(is_door_open, is_door_locked)
-    # @description = description
+    # I'm not sure I should initialize an empty string, empty array, or other.
+    # # either way I suppose I need an empty vessel to hold the string inscription.
+    # @inscription = []
     @is_door_open = is_door_open
     @is_door_locked = is_door_locked
   end
 
-# 4 states that could happen to a door object, typically by human or user.
-# the above methods are tests for above.
+# the methods are the verbs for the doors different states.
+  # def write_inscription
+  #
+  # end
+  #
+  # def display_inscription
+  #
+  # end
+
+
+
 
   def open()
     # so if the door is closed , door is unlocked
@@ -22,7 +32,8 @@ class Door
     elsif
       # door is already open
       @is_door_open == true
-       puts "door is already open... trish, you will need to place an error here."
+      #  puts "door is already open... trish, you will need to place an error here."
+      raise ArgumentError, "The door is already opened, you can't open it!"
     else
       # so if door is not open, && is locked, you cannot open it.
       @is_door_open == false && @is_door_locked == true
