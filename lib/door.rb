@@ -4,20 +4,28 @@ require_relative '../lib/door'
 
 class Door
   attr_accessor :inscription
-  #inscription
-  def initialize(is_door_open, is_door_locked)
+
+  def initialize(inscription,is_door_open, is_door_locked)
     # I'm not sure I should initialize an empty string, empty array, or other.
     # # either way I suppose I need an empty vessel to hold the string inscription.
-    # @inscription = []
+    @inscription = []
     @is_door_open = is_door_open
     @is_door_locked = is_door_locked
   end
 
 # the methods are the verbs for the doors different states.
-  # def write_inscription
-  #
-  # end
-  #
+  def write_inscription(description)
+    # first check if @inscription is an empty array.
+    # if it is empty all user to input whatever inscprion they desire.
+    # after an inscrpition has been set. It cannot be changed.
+    # so raise error when somene tries to change it.
+
+
+
+
+
+  end
+
   # def display_inscription
   #
   # end
