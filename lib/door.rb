@@ -15,14 +15,14 @@ class Door
 
 # the methods are the verbs for the doors different states.
   def write_inscription(description)
-    # first check if @inscription is an empty array.
-    # if it is empty all user to input whatever inscprion they desire.
-    # after an inscrpition has been set. It cannot be changed.
-    # so raise error when somene tries to change it.
-
-
-
-
+    if @inscprion.empty?
+      @inscription << description
+      return @inscription
+    elsif
+      puts "Raise ArgumentError: you cannot add more words to a door that already has a description written for it. "
+    else
+      puts "this may never be thrown. "
+    end
 
   end
 
