@@ -95,7 +95,7 @@ describe Door do
     # or raise an argument errror?
   end
 
-#11
+#11 # pass!
   it "Test to see if a locked door, CANNOT locked " do
     # door would need to be closed, i.e.(param 1st: false)
     # and that closed, woould also need to be locked (2nd: true)
@@ -103,7 +103,7 @@ describe Door do
     proc {door.lock}.must_raise(RuntimeError)
   end
 
-#12
+#12 # pass!
   it "Test to see if a locked door, can be unlocked" do
     # is_door_open: false (as its closed)
     # is_door_locked: true
@@ -114,12 +114,18 @@ describe Door do
 
 ################### incription Tests ###################
 # Once the writing (inscription) on a Door is set, it cannot be changed
+# what else can I test about this incription method?
 
+  it "Test to see if an inscription cannot be changed more than once. Once its set it cannot be changed." do
+    door1 = Door.new(false, true)
+    door1.write_inscription("This is a string description that can't be changed once its writen.")
+    proc {door1.write_inscription("this is a test")}.must_raise(RuntimeError)
+  end
 
-
-
-
-
-
-
+  it "Test to see if display_inscription will succesfully display the correct message" do
+    door = Door.new(false, true)
+    door.write_inscription("This is a new inscription string")
+    # since I saved it into an empty array, in order to pass this test. I'd need to surround this string in an array.
+    expect(door.display_inscription).must_equal(["This is a new inscription string"])
+  end
 end

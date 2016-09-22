@@ -102,9 +102,9 @@ end
 # so door is open and unlocked.
 # changed this test to see if would work with this new display_inscription method.
 
-test4 = Door.new(true, false)
-puts test4.write_inscription("here is a nother string.")
-puts test4.display_inscription
+# test4 = Door.new(true, false)
+# puts test4.write_inscription("here is a nother string.")
+# puts test4.display_inscription
 #
 # puts test4.write_inscription(" just string.")
 
