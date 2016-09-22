@@ -48,3 +48,7 @@ def write_inscription(description)
   end
 
 end
+
+
+7. http://mattsears.com/articles/2011/12/10/minitest-quick-reference/
++ article about minitest-quick-reference

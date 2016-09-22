@@ -14,11 +14,17 @@ class Door
   end
 
 # the methods are the verbs for the doors different states.
+# Once the writing (inscription) on a Door is set, it cannot be changed
+
   def write_inscription(description)
-    # if @inscprion.empty? == true
-    attempts = 0
-    while attempts <= 1|
+    # keep getting an undefined method empty for nil class(no_method_error)
+    # works in irb but not within this class.
+    # if inscription is empty...
+    if @inscription.empty? == true
       @inscription << description
+      # would this work?
+      # @inscription.insert(description)
+      # @inscription.push(description)
       return @inscription
     else
       puts "Raise ArgumentError: you cannot add more words to a door that already has a description written for it. "
@@ -37,7 +43,7 @@ class Door
       # door is already open
       @is_door_open == true
       #  puts "door is already open... trish, you will need to place an error here."
-      raise ArgumentError, "The door is already opened, you can't open it!"
+      raise  "The door is already opened, you can't open it!"
     else
       # so if door is not open, && is locked, you cannot open it.
       @is_door_open == false && @is_door_locked == true
@@ -93,6 +99,8 @@ end
 # so door is open and unlocked.
 test4 = Door.new(true, false)
 puts test4.write_inscription("here is a nother string.")
+
+puts test4.write_inscription(" just string.")
 
 
 
