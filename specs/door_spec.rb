@@ -15,7 +15,8 @@ describe Door do
     # as in, is_door_open = true, is_door_locked = false
     # door is open, its not locked.
     door = Door.new(true, false)
-    expect(door.open).must_raise(Exception)
+    # proc really!?
+    proc {door.open}.must_raise(RuntimeError)
   end
 
 #02 # pass!
