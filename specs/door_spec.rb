@@ -15,7 +15,7 @@ describe Door do
     # as in, is_door_open = true, is_door_locked = false
     # door is open, its not locked.
     door = Door.new(true, false)
-    # proc really!?
+    # proc is important here. I found an example in my scrabble class. Will need to change language for other errors.
     proc {door.open}.must_raise(RuntimeError)
   end
 
@@ -29,9 +29,9 @@ describe Door do
 
 #03 # pass!
   #door cannot be locked.
-  it "Test to see if open door cannot be locked. Should return nil(?)" do
-    door1 = Door.new(true, true)
-    expect(door1.lock).must_equal(nil)
+  it "Test to see if open door cannot be locked. Should return RuntimeError(?)" do
+    door = Door.new(true, true)
+    proc {door.lock}.must_raise(RuntimeError)
     # or argument error.
   end
 
@@ -39,10 +39,10 @@ describe Door do
   #open door cannot be unlocked.
   it "Test to see if an open door cannot be unlocked." do
     door = Door.new(true, true)
-    expect(door.unlock).must_equal(nil)
+    proc {door.unlock}.must_raise(RuntimeError)
     # or raise an argument error.
   end
-  # Thanks Susan & Chris! I was checking all of my it & end matched up. Failed to look at my do side.
+  # Thanks Susan & Chris! I was checking all of my '''it & ends''' matched up. Failed to look at the left side of my screen!! #noviceproblems.
 
 ################### ClosedDoor tests ###################
 ## can be opened
@@ -53,13 +53,13 @@ describe Door do
 #05 # pass!
   it "Test to see if a closed door, can be opened" do
     door = Door.new(false, true)
-    expect(door.open).must_equal(nil)
+    proc {door.open}.must_raise(RuntimeError)
   end
 
 #06 # pass!
   it "Test to see if a closed door, CANNOT be closed." do
     door = Door.new(false, true)
-    expect(door.close).must_equal(nil)
+    proc {door.close}.must_raise(RuntimeError)
     # eventually, raise argument error?
   end
 
@@ -72,7 +72,7 @@ describe Door do
 #08 # pass!
   it "Test to see if a closed door, CANNOT be unlocked " do
     door = Door.new(false, false)
-    expect(door.unlock).must_equal(nil)
+    proc {door.unlock}.must_raise(RuntimeError)
   end
 
 ################### LockedDoor Tests ###################
@@ -84,14 +84,14 @@ describe Door do
 #09 # pass!
   it "Test to see if a locked door, CANNOT be opened " do
     door = Door.new(false, true)
-    expect(door.open).must_equal(nil)
+    proc {door.open}.must_raise(RuntimeError)
     # or raise an argument errror, eventually.
   end
 
 #10 # pass!
   it "Test to see if a locked door, CANNOT closed " do
     door = Door.new(false, true)
-    expect(door.close).must_equal(nil)
+    proc {door.close}.must_raise(RuntimeError)
     # or raise an argument errror?
   end
 
@@ -100,7 +100,7 @@ describe Door do
     # door would need to be closed, i.e.(param 1st: false)
     # and that closed, woould also need to be locked (2nd: true)
     door = Door.new(false, true)
-    expect(door.lock).must_equal(nil)
+    proc {door.lock}.must_raise(RuntimeError)
   end
 
 #12
@@ -111,4 +111,15 @@ describe Door do
     # I expected it to be true. As in, it can be unlocked. But, the test said it wanted false. Which potentially means that its registering the new state of the door which is_door_locked: false. Would in fact be true?
     expect(door.unlock).must_equal(false)
   end
+
+################### incription Tests ###################
+# Once the writing (inscription) on a Door is set, it cannot be changed
+
+
+
+
+
+
+
+
 end
