@@ -1,7 +1,7 @@
 #door.rb
 require_relative '../lib/door'
 # require_relative 'Spec_helper'
-#so it looks like 'Spec_helper' is not required to rake/run tests.
+#so it looks like 'Spec_helper' is not required to rake/run tests??
 
 class Door
   attr_accessor :inscription
@@ -14,32 +14,27 @@ class Door
     @is_door_locked = is_door_locked
   end
 
-# the methods are the verbs for the doors different states.
 
-# Once the writing (inscription) on a Door is set, it cannot be changed
+  # Once the writing (inscription) on a Door is set, it cannot be changed
   def write_inscription(description)
-    # keep getting an undefined method empty for nil class(no_method_error)
-    # works in irb but not within this class.
-    # if inscription is empty...
     if @inscription.empty? == true
       @inscription << description
-      # would this work?
-      # @inscription.insert(description)
-      # @inscription.push(description)
+
       return @inscription
     else
       raise "Raise ArgumentError: you cannot add more words to a door that already has a description written for it. "
     end
   end
 
-  # def display_inscription
-  #
-  # end
+#to_s method?
+  def display_inscription
+     @inscription
+  end
 
   def open()
     # so if the door is closed , door is unlocked
     if @is_door_open == false && @is_door_locked == false
-       @is_door_open = true
+      @is_door_open = true
     elsif
       # door is already open
       @is_door_open == true
@@ -50,7 +45,6 @@ class Door
       @is_door_open == false && @is_door_locked == true
       raise "You cannot open a locked door, fool!"
     end
-
   end
 
   def close()
@@ -88,18 +82,29 @@ class Door
       @is_door_locked = false
     elsif
       # if the door is closed, && door unlocked - you cannot unlock door.
-      @is_door_open == false && @is_door_locked == false || @is_door_open == true && @is_door_locked == false
+      @is_door_open == false && @is_door_locked == false
       raise "You cant unlock, and unlocked door, friend!"
+    else
+      # if door is opened you cant unlock it
+      if @is_door_open == true
+        raise "You cant unlock an open door, friend!"
+      end
     end
   end
 
 end
 
 
+
+
+
 # creating a test to see if my writing method will work.
 # so door is open and unlocked.
-# test4 = Door.new(true, false)
-# puts test4.write_inscription("here is a nother string.")
+# changed this test to see if would work with this new display_inscription method.
+
+test4 = Door.new(true, false)
+puts test4.write_inscription("here is a nother string.")
+puts test4.display_inscription
 #
 # puts test4.write_inscription(" just string.")
 

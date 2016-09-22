@@ -52,3 +52,16 @@ end
 
 7. http://mattsears.com/articles/2011/12/10/minitest-quick-reference/
 + article about minitest-quick-reference
+
+
+8. cant remember how i fixed thiis:
+  # keep getting an undefined method empty for nil class(no_method_error)
+
+  spelling!
+
+
+  # would this work?
+  # @inscription.insert(description)
+  # @inscription.push(description)
+
+  # the methods are the verbs for the doors different states.
