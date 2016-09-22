@@ -47,7 +47,7 @@ class Door
     else
       # so if door is not open, && is locked, you cannot open it.
       @is_door_open == false && @is_door_locked == true
-      puts "You cannot open a locked door, fool!"
+      raise "You cannot open a locked door, fool!"
     end
 
   end
