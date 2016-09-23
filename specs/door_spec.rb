@@ -114,14 +114,16 @@ describe Door do
 
 ################### incription Tests ###################
 # Once the writing (inscription) on a Door is set, it cannot be changed
-# what else can I test about this incription method?
+# what else can I test about this incription method??
 
+#13
   it "Test to see if an inscription cannot be changed more than once. Once its set it cannot be changed." do
     door1 = Door.new(false, true)
     door1.write_inscription("This is a string description that can't be changed once its writen.")
     proc {door1.write_inscription("this is a test")}.must_raise(RuntimeError)
   end
 
+#14
   it "Test to see if display_inscription will succesfully display the correct message" do
     door = Door.new(false, true)
     door.write_inscription("This is a new inscription string")
